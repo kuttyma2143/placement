@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import UserSideBar from "../../components/User/UserSidebar/UserSideBar";
+import UserSideBar from "../../components/user/UserSideBar/UserSideBar";
 import UserContent from "../../components/User/UserContent/UserContent";
 import Footer from "../../components/Footer/Footer";
 

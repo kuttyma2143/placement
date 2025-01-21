@@ -17,7 +17,7 @@ const Header = () => {
     setCollapsed,
     mobileView,
     setMobilePopout,
-    registeredGoogleUser,
+    RegisteredGoogleUser,
     admin,
   } = useContext(Context);
   const location = useLocation();
@@ -34,9 +34,7 @@ const Header = () => {
       fetchAdminData();
     } else {
       // if student logged in
-      const userid = parseInt(
-        registeredGoogleUser?.displayName.substring(0, 8)
-      );
+      const userid = (parseInt(RegisteredGoogleUser?.email.length)*(RegisteredGoogleUser?.displayName.length));
       setCurrentUser(userid);
       fetchUserData();
     }

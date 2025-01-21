@@ -18,7 +18,7 @@ const { Sider } = Layout;
 
 const UserSideBar = () => {
   const {
-    registeredGoogleUser,
+    RegisteredGoogleUser,
     googleSignOut,
     isCollapsed,
     setCollapsed,
@@ -57,7 +57,7 @@ const UserSideBar = () => {
   };
 
   useEffect(() => {
-    const userid = parseInt(registeredGoogleUser?.displayName.substring(0, 8));
+    const userid = parseInt(RegisteredGoogleUser?.displayName.substring(0, 8));
     fetchData(userid);
   }, []);
 
@@ -195,7 +195,7 @@ const UserSideBar = () => {
           {mobileView ? (
             <>
               <h1 className="m-2 text-white text-lg font-extrabold uppercase">
-                Placement Cell
+                Placement
               </h1>
               <CloseCircleOutlined
                 className="text-gray-200 text-2xl mb-1"

@@ -11,8 +11,8 @@ import "../../../components/CustomTableCss/CustomTable.css"; // Import the CSS f
 import Domain from "../../../utils/Domain.json";
 
 const UserHome = () => {
-  const { registeredGoogleUser } = useContext(Context);
-  const userid = parseInt(registeredGoogleUser?.displayName.substring(0, 8));
+  const { RegisteredGoogleUser } = useContext(Context);
+  const userid = (parseInt(RegisteredGoogleUser?.email.length)*(RegisteredGoogleUser?.displayName.length));
 
   const [statedata, setstatedata] = useState();
 

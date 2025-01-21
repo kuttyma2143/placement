@@ -12,10 +12,11 @@ import {
 } from "antd";
 import Domain from "../../../utils/Domain.json";
 
+
 const RegisterUser = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
-  const { unRegisteredGoogleUser, googleSignOut } = useContext(Context);
+  const { unRegisteredGoogleUser,googleSignOut } = useContext(Context);
   const onFinish = async (values) => {
     message.warning("Please wait for confirmation");
     setLoading(true);
@@ -74,16 +75,11 @@ const RegisterUser = () => {
   };
 
   const initialValues = {
-    userid: parseInt(unRegisteredGoogleUser?.displayName.substring(0, 8)), // 8th character is the space which is excluded
-    username: unRegisteredGoogleUser?.displayName.substring(9), // the charcters starting from 9th index to the end of string is taken
+    userid: (parseInt(unRegisteredGoogleUser?.email.length)*(unRegisteredGoogleUser?.displayName.length)), // 8th character is the space which is excluded
+    username: unRegisteredGoogleUser?.displayName.substring(0), // the charcters starting from 9th index to the end of string is taken
     email: unRegisteredGoogleUser?.email,
     passoutyear:
-      parseInt(
-        unRegisteredGoogleUser?.email.substring(
-          unRegisteredGoogleUser?.email.length - 11,
-          unRegisteredGoogleUser?.email.length - 13
-        )
-      ) + 2004,
+      parseInt(unRegisteredGoogleUser?.email.length -10 + 2004),
     avatar: [],
   };
 
@@ -161,7 +157,7 @@ const RegisterUser = () => {
                           style={{ marginBottom: "-3px" }}
                         >
                           <Input
-                            
+                            readOnly
                             style={{
                               height: "40px",
                               width: "100%",
@@ -195,8 +191,9 @@ const RegisterUser = () => {
                           style={{ marginBottom: "-3px" }}
                         >
                           <Input
-                            
+                            readOnly
                             style={{
+                              type:"Number",
                               height: "40px",
                               width: "100%",
                               backgroundColor: "#f5f4f0",

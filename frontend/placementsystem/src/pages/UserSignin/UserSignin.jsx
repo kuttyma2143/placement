@@ -5,7 +5,7 @@ import placementcell from "../../assets/placementcell.png";
 // import { GoogleButton } from "react-google-button";
 
 const Signin = () => {
-  const { googleSignIn, unRegisteredGoogleUser, registeredGoogleUser } =
+  const { googleSignIn, unRegisteredGoogleUser, RegisteredGoogleUser } =
     useContext(Context);
   const navigate = useNavigate();
 
@@ -21,10 +21,10 @@ const Signin = () => {
     if (unRegisteredGoogleUser) {
       navigate("/register");
     }
-    if (registeredGoogleUser) {
+    if (RegisteredGoogleUser) {
       navigate("/userprofile");
     }
-  }, [unRegisteredGoogleUser, registeredGoogleUser]);
+  }, [unRegisteredGoogleUser, RegisteredGoogleUser]);
 
   const navigateAdminSignin = () => {
     navigate("/adminsignin");

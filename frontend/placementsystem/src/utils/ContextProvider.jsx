@@ -20,7 +20,7 @@ const ContextProvider = ({ children }) => {
   const [mobilePopout, setMobilePopout] = useState(false);
 
   const [unRegisteredGoogleUser, setUnRegisteredGoogleUser] = useState(null);
-  const [registeredGoogleUser, setRegisteredGoogleUser] = useState(null);
+  const [RegisteredGoogleUser, setRegisteredGoogleUser] = useState(null);
 
   // Usually if the user signed out properly, the googleSignInTime will not exist in the local storage
   // Check if the user's signin period is expired when the user login after a long period of time or when the page refreshes
@@ -75,22 +75,22 @@ const ContextProvider = ({ children }) => {
   async function checkUser(signedInUser) {
     setLoading(true);
     try {
-      const response = await fetch(`${Domain.serveraddress}/api/user`, {
+      const response = await fetch(`${Domain.serveraddress}/api/user/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userid: parseInt(signedInUser.displayName.substring(0, 8)),
+          userid: ((parseInt(signedInUser.displayName.length))*(parseInt(signedInUser.email.length))),
         }),
       });
       const data = await response.json();
 
       if (data === "unregistered") {
-        // console.log(data);
+         console.log(data);
         setUnRegisteredGoogleUser(signedInUser);
       } else if (data === "registered") {
-        // console.log(data);
+        console.log(data);
         setRegisteredGoogleUser(signedInUser);
       }
 
@@ -187,7 +187,7 @@ const ContextProvider = ({ children }) => {
         googleSignIn,
         googleSignOut,
         unRegisteredGoogleUser,
-        registeredGoogleUser,
+        RegisteredGoogleUser,
         isCollapsed,
         setCollapsed,
         mobileView,

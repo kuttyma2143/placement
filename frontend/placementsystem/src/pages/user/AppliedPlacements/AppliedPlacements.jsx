@@ -11,8 +11,8 @@ import "../../../components/CustomTableCss/CustomTable.css";
 import Domain from "../../../utils/Domain.json";
 
 const AppliedPlacements = () => {
-  const { registeredGoogleUser } = useContext(Context);
-  const userid = parseInt(registeredGoogleUser?.displayName.substring(0, 8));
+  const { RegisteredGoogleUser } = useContext(Context);
+  const userid = parseInt(RegisteredGoogleUser?.displayName.substring(0, 8));
 
   const [statedata, setstatedata] = useState([]);
 

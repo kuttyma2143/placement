@@ -44,7 +44,7 @@ app.use("/api/adminnotifications", adminNotificationRouter);
 const startServer = async () => {
   try {
     // connect to database
-    await connectDB("mongodb+srv://arafath5023:rockrahim@classmanagement.mry2u.mongodb.net/");
+    await connectDB(process.env.DB_CONNECT);
 
     // the server wil not run if the connectDB fails due to awaiting connectDB function. Also it throws error.
     app.listen(PORT, () => console.log(`Server started at port ${PORT}`));

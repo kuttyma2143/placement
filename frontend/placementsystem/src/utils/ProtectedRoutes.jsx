@@ -64,9 +64,9 @@ export const ProtectedUserUnregistered = ({ children }) => {
 };
 
 export const ProtectedUserRegistered = ({ children }) => {
-  const { registeredGoogleUser } = useContext(Context);
-  if (!registeredGoogleUser) {
-    return <Navigate to="/signup" replace />;
+  const { RegisteredGoogleUser } = useContext(Context);
+  if (!RegisteredGoogleUser) {
+    return <Navigate to="/signin" replace />;
   } else {
     return children;
   }
